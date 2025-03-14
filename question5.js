@@ -6,10 +6,11 @@ const { Sequelize, DataTypes } = require('sequelize');
 const app = express();
 
 // Sequelize to connect to database
-const sequelize = new Sequelize('database_name', 'username', 'password', {
-    host: 'localhost',
-    dialect: 'mysql',
-});
+const sequelize = new Sequelize
+    ('databaseName', 
+        'userName', 
+        'password', 
+    {host: 'localhost', dialect: 'mysql',});
 
 //User model
 const User = sequelize.define('User', {
@@ -42,12 +43,12 @@ app.get('/users', async (req, res) => {
         const users = await User.findAll(); // Fetch all users to database
         res.json(users); // Send the users as a JSON response
     } catch (error) {
-        console.error('Error fetching users:', error);
+        console.error('Error fetch users:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
-// Sync the model with the database and start the server
+// Sync with the database and start the server
 sequelize.sync()
     .then(() => {
         console.log('Database synced');
