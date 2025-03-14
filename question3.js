@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/test', (req, res) => {
-    res.json({ message: 'Express is working! Write your full name' });
+    res.json({ message: 'Express is working! Kent S. Wenceslao' });
 });
 
 //listen on port 3000
